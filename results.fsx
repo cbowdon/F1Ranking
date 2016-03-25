@@ -1,13 +1,10 @@
-#r "System.Xml.Linq.dll"
+#load "xpath.fsx"
 
 open System
-open System.Xml.Linq
-open System.Xml
-open System.Xml.XPath
 
 module Ergast =
-    open System
     open System.Net
+    open XPath
 
     let api = Uri("http://ergast.com/api/f1/")
 
@@ -15,30 +12,15 @@ module Ergast =
         let wc = new WebClient()
         wc.DownloadString uri
 
-    let parseXml (xml: string) =
-        xml.Replace("xmlns", "fuckyouxml")
-        |> XElement.Parse
-        |> XDocument
-
     let rounds year =
         Uri(api, sprintf "%i" year)
         |> download
-        |> parseXml
+        |> XPath.parseXml
 
     let results year round =
         Uri(api, sprintf "%i/%i/results" year round)
         |> download
-        |> parseXml
-
-module XPath = 
-    let select (xml: XDocument) (query: string) =
-        xml.XPathSelectElements query
-
-    let selectAttrs (xml: XDocument) (query: string) (attr: string) =
-        select xml query
-        |> Seq.map (fun node -> node.Attribute(XName.Get attr))
-        |> Seq.filter (fun node -> null <> node)
-        |> Seq.map (fun node -> node.Value)
+        |> XPath.parseXml
 
 let years = Seq.init 16 (fun i -> 2000 + i)
 
@@ -53,5 +35,4 @@ let results = seq { for y,rs in rounds do
                     let results = Ergast.results y r
                     yield y, r, results }
 
-results
-|> Seq.iter (fun (y,r,xml) -> xml.Save(sprintf "results/results_%i_%i.xml" y r))
+//results |> Seq.iter (fun (y,r,xml) -> xml.Save(sprintf "results/results_%i_%i.xml" y r))

@@ -1,3 +1,5 @@
+module Elo
+
 open System
 
 let KFactor = 32.0
