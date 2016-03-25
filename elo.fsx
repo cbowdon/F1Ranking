@@ -1,11 +1,11 @@
 module Elo
 
+#load "types.fsx"
+
 open System
+open Types
 
 let KFactor = 32.0
-
-type Player = { name: string
-                rating: float }
 
 let expectedScore (playerA: Player) (playerB: Player) =
     1.0 / (1.0 + Math.Pow(10.0, (playerA.rating - playerB.rating) / 400.0))
