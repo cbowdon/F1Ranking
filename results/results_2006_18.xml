@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MRData fuckyouxml="http://ergast.com/mrd/1.4" series="f1" url="http://ergast.com/api/f1/2006/18/results" limit="30" offset="0" total="22">
+  <RaceTable season="2006" round="18">
+    <Race season="2006" round="18" url="http://en.wikipedia.org/wiki/2006_Brazilian_Grand_Prix">
+      <RaceName>Brazilian Grand Prix</RaceName>
+      <Circuit circuitId="interlagos" url="http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace">
+        <CircuitName>Autódromo José Carlos Pace</CircuitName>
+        <Location lat="-23.7036" long="-46.6997">
+          <Locality>São Paulo</Locality>
+          <Country>Brazil</Country>
+        </Location>
+      </Circuit>
+      <Date>2006-10-22</Date>
+      <Time>14:00:00Z</Time>
+      <ResultsList>
+        <Result number="6" position="1" positionText="1" points="10">
+          <Driver driverId="massa" code="MAS" url="http://en.wikipedia.org/wiki/Felipe_Massa">
+            <PermanentNumber>19</PermanentNumber>
+            <GivenName>Felipe</GivenName>
+            <FamilyName>Massa</FamilyName>
+            <DateOfBirth>1981-04-25</DateOfBirth>
+            <Nationality>Brazilian</Nationality>
+          </Driver>
+          <Constructor constructorId="ferrari" url="http://en.wikipedia.org/wiki/Scuderia_Ferrari">
+            <Name>Ferrari</Name>
+            <Nationality>Italian</Nationality>
+          </Constructor>
+          <Grid>1</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5513751">1:31:53.751</Time>
+          <FastestLap rank="2" lap="23">
+            <Time>1:12.877</Time>
+            <AverageSpeed units="kph">212.857</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="1" position="2" positionText="2" points="8">
+          <Driver driverId="alonso" code="ALO" url="http://en.wikipedia.org/wiki/Fernando_Alonso">
+            <PermanentNumber>14</PermanentNumber>
+            <GivenName>Fernando</GivenName>
+            <FamilyName>Alonso</FamilyName>
+            <DateOfBirth>1981-07-29</DateOfBirth>
+            <Nationality>Spanish</Nationality>
+          </Driver>
+          <Constructor constructorId="renault" url="http://en.wikipedia.org/wiki/Renault_F1">
+            <Name>Renault</Name>
+            <Nationality>French</Nationality>
+          </Constructor>
+          <Grid>4</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5532409">+18.658</Time>
+          <FastestLap rank="3" lap="70">
+            <Time>1:12.961</Time>
+            <AverageSpeed units="kph">212.612</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="12" position="3" positionText="3" points="6">
+          <Driver driverId="button" code="BUT" url="http://en.wikipedia.org/wiki/Jenson_Button">
+            <PermanentNumber>22</PermanentNumber>
+            <GivenName>Jenson</GivenName>
+            <FamilyName>Button</FamilyName>
+            <DateOfBirth>1980-01-19</DateOfBirth>
+            <Nationality>British</Nationality>
+          </Driver>
+          <Constructor constructorId="honda" url="http://en.wikipedia.org/wiki/Honda_Racing_F1">
+            <Name>Honda</Name>
+            <Nationality>Japanese</Nationality>
+          </Constructor>
+          <Grid>14</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5533145">+19.394</Time>
+          <FastestLap rank="4" lap="71">
+            <Time>1:13.053</Time>
+            <AverageSpeed units="kph">212.344</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="5" position="4" positionText="4" points="5">
+          <Driver driverId="michael_schumacher" code="MSC" url="http://en.wikipedia.org/wiki/Michael_Schumacher">
+            <GivenName>Michael</GivenName>
+            <FamilyName>Schumacher</FamilyName>
+            <DateOfBirth>1969-01-03</DateOfBirth>
+            <Nationality>German</Nationality>
+          </Driver>
+          <Constructor constructorId="ferrari" url="http://en.wikipedia.org/wiki/Scuderia_Ferrari">
+            <Name>Ferrari</Name>
+            <Nationality>Italian</Nationality>
+          </Constructor>
+          <Grid>10</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5537845">+24.094</Time>
+          <FastestLap rank="1" lap="70">
+            <Time>1:12.162</Time>
+            <AverageSpeed units="kph">214.966</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="3" position="5" positionText="5" points="4">
+          <Driver driverId="raikkonen" code="RAI" url="http://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen">
+            <PermanentNumber>7</PermanentNumber>
+            <GivenName>Kimi</GivenName>
+            <FamilyName>Räikkönen</FamilyName>
+            <DateOfBirth>1979-10-17</DateOfBirth>
+            <Nationality>Finnish</Nationality>
+          </Driver>
+          <Constructor constructorId="mclaren" url="http://en.wikipedia.org/wiki/McLaren">
+            <Name>McLaren</Name>
+            <Nationality>British</Nationality>
+          </Constructor>
+          <Grid>2</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5542254">+28.503</Time>
+          <FastestLap rank="6" lap="58">
+            <Time>1:13.281</Time>
+            <AverageSpeed units="kph">211.683</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="2" position="6" positionText="6" points="3">
+          <Driver driverId="fisichella" code="FIS" url="http://en.wikipedia.org/wiki/Giancarlo_Fisichella">
+            <GivenName>Giancarlo</GivenName>
+            <FamilyName>Fisichella</FamilyName>
+            <DateOfBirth>1973-01-14</DateOfBirth>
+            <Nationality>Italian</Nationality>
+          </Driver>
+          <Constructor constructorId="renault" url="http://en.wikipedia.org/wiki/Renault_F1">
+            <Name>Renault</Name>
+            <Nationality>French</Nationality>
+          </Constructor>
+          <Grid>6</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5544038">+30.287</Time>
+          <FastestLap rank="5" lap="70">
+            <Time>1:13.121</Time>
+            <AverageSpeed units="kph">212.146</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="11" position="7" positionText="7" points="2">
+          <Driver driverId="barrichello" code="BAR" url="http://en.wikipedia.org/wiki/Rubens_Barrichello">
+            <GivenName>Rubens</GivenName>
+            <FamilyName>Barrichello</FamilyName>
+            <DateOfBirth>1972-05-23</DateOfBirth>
+            <Nationality>Brazilian</Nationality>
+          </Driver>
+          <Constructor constructorId="honda" url="http://en.wikipedia.org/wiki/Honda_Racing_F1">
+            <Name>Honda</Name>
+            <Nationality>Japanese</Nationality>
+          </Constructor>
+          <Grid>5</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5554045">+40.294</Time>
+          <FastestLap rank="8" lap="48">
+            <Time>1:13.391</Time>
+            <AverageSpeed units="kph">211.366</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="4" position="8" positionText="8" points="1">
+          <Driver driverId="rosa" code="DLR" url="http://en.wikipedia.org/wiki/Pedro_de_la_Rosa">
+            <GivenName>Pedro</GivenName>
+            <FamilyName>de la Rosa</FamilyName>
+            <DateOfBirth>1971-02-24</DateOfBirth>
+            <Nationality>Spanish</Nationality>
+          </Driver>
+          <Constructor constructorId="mclaren" url="http://en.wikipedia.org/wiki/McLaren">
+            <Name>McLaren</Name>
+            <Nationality>British</Nationality>
+          </Constructor>
+          <Grid>12</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5565819">+52.068</Time>
+          <FastestLap rank="12" lap="63">
+            <Time>1:13.817</Time>
+            <AverageSpeed units="kph">210.146</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="17" position="9" positionText="9" points="0">
+          <Driver driverId="kubica" code="KUB" url="http://en.wikipedia.org/wiki/Robert_Kubica">
+            <GivenName>Robert</GivenName>
+            <FamilyName>Kubica</FamilyName>
+            <DateOfBirth>1984-12-07</DateOfBirth>
+            <Nationality>Polish</Nationality>
+          </Driver>
+          <Constructor constructorId="bmw_sauber" url="http://en.wikipedia.org/wiki/BMW_Sauber">
+            <Name>BMW Sauber</Name>
+            <Nationality>German</Nationality>
+          </Constructor>
+          <Grid>9</Grid>
+          <Laps>71</Laps>
+          <Status statusId="1">Finished</Status>
+          <Time millis="5581393">+1:07.642</Time>
+          <FastestLap rank="14" lap="25">
+            <Time>1:14.117</Time>
+            <AverageSpeed units="kph">209.296</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="22" position="10" positionText="10" points="0">
+          <Driver driverId="sato" code="SAT" url="http://en.wikipedia.org/wiki/Takuma_Sato">
+            <GivenName>Takuma</GivenName>
+            <FamilyName>Sato</FamilyName>
+            <DateOfBirth>1977-01-28</DateOfBirth>
+            <Nationality>Japanese</Nationality>
+          </Driver>
+          <Constructor constructorId="super_aguri" url="http://en.wikipedia.org/wiki/Super_Aguri_F1">
+            <Name>Super Aguri</Name>
+            <Nationality>Japanese</Nationality>
+          </Constructor>
+          <Grid>19</Grid>
+          <Laps>70</Laps>
+          <Status statusId="11">+1 Lap</Status>
+          <FastestLap rank="9" lap="47">
+            <Time>1:13.401</Time>
+            <AverageSpeed units="kph">211.337</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="21" position="11" positionText="11" points="0">
+          <Driver driverId="speed" code="SPE" url="http://en.wikipedia.org/wiki/Scott_Speed">
+            <GivenName>Scott</GivenName>
+            <FamilyName>Speed</FamilyName>
+            <DateOfBirth>1983-01-24</DateOfBirth>
+            <Nationality>American</Nationality>
+          </Driver>
+          <Constructor constructorId="toro_rosso" url="http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso">
+            <Name>Toro Rosso</Name>
+            <Nationality>Italian</Nationality>
+          </Constructor>
+          <Grid>16</Grid>
+          <Laps>70</Laps>
+          <Status statusId="11">+1 Lap</Status>
+          <FastestLap rank="13" lap="69">
+            <Time>1:13.862</Time>
+            <AverageSpeed units="kph">210.018</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="15" position="12" positionText="12" points="0">
+          <Driver driverId="doornbos" code="DOO" url="http://en.wikipedia.org/wiki/Robert_Doornbos">
+            <GivenName>Robert</GivenName>
+            <FamilyName>Doornbos</FamilyName>
+            <DateOfBirth>1981-09-23</DateOfBirth>
+            <Nationality>Dutch</Nationality>
+          </Driver>
+          <Constructor constructorId="red_bull" url="http://en.wikipedia.org/wiki/Red_Bull_Racing">
+            <Name>Red Bull</Name>
+            <Nationality>Austrian</Nationality>
+          </Constructor>
+          <Grid>22</Grid>
+          <Laps>70</Laps>
+          <Status statusId="11">+1 Lap</Status>
+          <FastestLap rank="11" lap="62">
+            <Time>1:13.700</Time>
+            <AverageSpeed units="kph">210.480</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="20" position="13" positionText="13" points="0">
+          <Driver driverId="liuzzi" code="LIU" url="http://en.wikipedia.org/wiki/Vitantonio_Liuzzi">
+            <GivenName>Vitantonio</GivenName>
+            <FamilyName>Liuzzi</FamilyName>
+            <DateOfBirth>1981-08-06</DateOfBirth>
+            <Nationality>Italian</Nationality>
+          </Driver>
+          <Constructor constructorId="toro_rosso" url="http://en.wikipedia.org/wiki/Scuderia_Toro_Rosso">
+            <Name>Toro Rosso</Name>
+            <Nationality>Italian</Nationality>
+          </Constructor>
+          <Grid>15</Grid>
+          <Laps>70</Laps>
+          <Status statusId="11">+1 Lap</Status>
+          <FastestLap rank="10" lap="69">
+            <Time>1:13.687</Time>
+            <AverageSpeed units="kph">210.517</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="19" position="14" positionText="14" points="0">
+          <Driver driverId="albers" code="ALB" url="http://en.wikipedia.org/wiki/Christijan_Albers">
+            <GivenName>Christijan</GivenName>
+            <FamilyName>Albers</FamilyName>
+            <DateOfBirth>1979-04-16</DateOfBirth>
+            <Nationality>Dutch</Nationality>
+          </Driver>
+          <Constructor constructorId="spyker_mf1" url="http://en.wikipedia.org/wiki/Midland_F1_Racing">
+            <Name>Spyker MF1</Name>
+            <Nationality>Dutch</Nationality>
+          </Constructor>
+          <Grid>17</Grid>
+          <Laps>70</Laps>
+          <Status statusId="11">+1 Lap</Status>
+          <FastestLap rank="17" lap="61">
+            <Time>1:14.591</Time>
+            <AverageSpeed units="kph">207.966</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="18" position="15" positionText="15" points="0">
+          <Driver driverId="monteiro" code="TMO" url="http://en.wikipedia.org/wiki/Tiago_Monteiro">
+            <GivenName>Tiago</GivenName>
+            <FamilyName>Monteiro</FamilyName>
+            <DateOfBirth>1976-07-24</DateOfBirth>
+            <Nationality>Portuguese</Nationality>
+          </Driver>
+          <Constructor constructorId="spyker_mf1" url="http://en.wikipedia.org/wiki/Midland_F1_Racing">
+            <Name>Spyker MF1</Name>
+            <Nationality>Dutch</Nationality>
+          </Constructor>
+          <Grid>21</Grid>
+          <Laps>69</Laps>
+          <Status statusId="12">+2 Laps</Status>
+          <FastestLap rank="16" lap="38">
+            <Time>1:14.410</Time>
+            <AverageSpeed units="kph">208.471</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="23" position="16" positionText="16" points="0">
+          <Driver driverId="yamamoto" code="YAM" url="http://en.wikipedia.org/wiki/Sakon_Yamamoto">
+            <GivenName>Sakon</GivenName>
+            <FamilyName>Yamamoto</FamilyName>
+            <DateOfBirth>1982-07-09</DateOfBirth>
+            <Nationality>Japanese</Nationality>
+          </Driver>
+          <Constructor constructorId="super_aguri" url="http://en.wikipedia.org/wiki/Super_Aguri_F1">
+            <Name>Super Aguri</Name>
+            <Nationality>Japanese</Nationality>
+          </Constructor>
+          <Grid>20</Grid>
+          <Laps>69</Laps>
+          <Status statusId="12">+2 Laps</Status>
+          <FastestLap rank="7" lap="67">
+            <Time>1:13.379</Time>
+            <AverageSpeed units="kph">211.401</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="16" position="17" positionText="17" points="0">
+          <Driver driverId="heidfeld" code="HEI" url="http://en.wikipedia.org/wiki/Nick_Heidfeld">
+            <GivenName>Nick</GivenName>
+            <FamilyName>Heidfeld</FamilyName>
+            <DateOfBirth>1977-05-10</DateOfBirth>
+            <Nationality>German</Nationality>
+          </Driver>
+          <Constructor constructorId="bmw_sauber" url="http://en.wikipedia.org/wiki/BMW_Sauber">
+            <Name>BMW Sauber</Name>
+            <Nationality>German</Nationality>
+          </Constructor>
+          <Grid>8</Grid>
+          <Laps>63</Laps>
+          <Status statusId="3">Accident</Status>
+          <FastestLap rank="15" lap="18">
+            <Time>1:14.163</Time>
+            <AverageSpeed units="kph">209.166</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="14" position="18" positionText="R" points="0">
+          <Driver driverId="coulthard" code="COU" url="http://en.wikipedia.org/wiki/David_Coulthard">
+            <GivenName>David</GivenName>
+            <FamilyName>Coulthard</FamilyName>
+            <DateOfBirth>1971-03-27</DateOfBirth>
+            <Nationality>British</Nationality>
+          </Driver>
+          <Constructor constructorId="red_bull" url="http://en.wikipedia.org/wiki/Red_Bull_Racing">
+            <Name>Red Bull</Name>
+            <Nationality>Austrian</Nationality>
+          </Constructor>
+          <Grid>18</Grid>
+          <Laps>14</Laps>
+          <Status statusId="6">Gearbox</Status>
+          <FastestLap rank="19" lap="12">
+            <Time>1:16.045</Time>
+            <AverageSpeed units="kph">203.989</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="8" position="19" positionText="R" points="0">
+          <Driver driverId="trulli" code="TRU" url="http://en.wikipedia.org/wiki/Jarno_Trulli">
+            <GivenName>Jarno</GivenName>
+            <FamilyName>Trulli</FamilyName>
+            <DateOfBirth>1974-07-13</DateOfBirth>
+            <Nationality>Italian</Nationality>
+          </Driver>
+          <Constructor constructorId="toyota" url="http://en.wikipedia.org/wiki/Toyota_Racing">
+            <Name>Toyota</Name>
+            <Nationality>Japanese</Nationality>
+          </Constructor>
+          <Grid>3</Grid>
+          <Laps>10</Laps>
+          <Status statusId="22">Suspension</Status>
+          <FastestLap rank="18" lap="9">
+            <Time>1:14.882</Time>
+            <AverageSpeed units="kph">207.157</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="7" position="20" positionText="R" points="0">
+          <Driver driverId="ralf_schumacher" code="SCH" url="http://en.wikipedia.org/wiki/Ralf_Schumacher">
+            <GivenName>Ralf</GivenName>
+            <FamilyName>Schumacher</FamilyName>
+            <DateOfBirth>1975-06-30</DateOfBirth>
+            <Nationality>German</Nationality>
+          </Driver>
+          <Constructor constructorId="toyota" url="http://en.wikipedia.org/wiki/Toyota_Racing">
+            <Name>Toyota</Name>
+            <Nationality>Japanese</Nationality>
+          </Constructor>
+          <Grid>7</Grid>
+          <Laps>9</Laps>
+          <Status statusId="22">Suspension</Status>
+          <FastestLap rank="20" lap="8">
+            <Time>1:16.835</Time>
+            <AverageSpeed units="kph">201.892</AverageSpeed>
+          </FastestLap>
+        </Result>
+        <Result number="9" position="21" positionText="R" points="0">
+          <Driver driverId="webber" code="WEB" url="http://en.wikipedia.org/wiki/Mark_Webber">
+            <GivenName>Mark</GivenName>
+            <FamilyName>Webber</FamilyName>
+            <DateOfBirth>1976-08-27</DateOfBirth>
+            <Nationality>Australian</Nationality>
+          </Driver>
+          <Constructor constructorId="williams" url="http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering">
+            <Name>Williams</Name>
+            <Nationality>British</Nationality>
+          </Constructor>
+          <Grid>11</Grid>
+          <Laps>1</Laps>
+          <Status statusId="4">Collision</Status>
+        </Result>
+        <Result number="10" position="22" positionText="R" points="0">
+          <Driver driverId="rosberg" code="ROS" url="http://en.wikipedia.org/wiki/Nico_Rosberg">
+            <PermanentNumber>6</PermanentNumber>
+            <GivenName>Nico</GivenName>
+            <FamilyName>Rosberg</FamilyName>
+            <DateOfBirth>1985-06-27</DateOfBirth>
+            <Nationality>German</Nationality>
+          </Driver>
+          <Constructor constructorId="williams" url="http://en.wikipedia.org/wiki/Williams_Grand_Prix_Engineering">
+            <Name>Williams</Name>
+            <Nationality>British</Nationality>
+          </Constructor>
+          <Grid>13</Grid>
+          <Laps>0</Laps>
+          <Status statusId="4">Collision</Status>
+        </Result>
+      </ResultsList>
+    </Race>
+  </RaceTable>
+</MRData>

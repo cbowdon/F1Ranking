@@ -54,4 +54,4 @@ let results = seq { for y,rs in rounds do
                     yield y, r, results }
 
 results
-|> Seq.iter (fun (y,r,xml) -> xml.Save(sprintf "results_%i_%i.xml" y r))
+|> Seq.iter (fun (y,r,xml) -> xml.Save(sprintf "results/results_%i_%i.xml" y r))
