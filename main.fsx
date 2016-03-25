@@ -7,9 +7,16 @@ open Types
 open XPath
 
 let raceName el =
-    selectValue el "/RaceTable/Race/RaceName"
+    match selectValue el "/RaceTable/Race/RaceName" with
+    | Some x -> x
+    | None -> failwith "Failed to parse race name"
 
-let result el =    
+let round el =
+    match selectAttr el "/RaceTable/Race" "round" with
+    | Some x -> Int32.Parse x
+    | None -> failwith "Failed to parse round"
+
+let result el =
     let driver =
         match selectAttr el "./Driver" "driverId" with
         | Some x -> x
@@ -37,9 +44,11 @@ let results el =
           yield result r }
 
 let yearResults year =
-    Directory.EnumerateFiles("results", sprintf "results_%i_*.xml" year)
-    |> Seq.map loadXml
-    |> Seq.map results
-    |> Seq.cache
-
-let y2k = yearResults 2000;;    
+    let pattern = sprintf "results_%i_*.xml" year
+    let files = Directory.EnumerateFiles("results", pattern)
+    seq { for file in files do
+          let xml = loadXml file
+          yield { year = year
+                  round = round xml
+                  name = raceName xml
+                  results = results xml } }
