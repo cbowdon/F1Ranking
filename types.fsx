@@ -15,8 +15,12 @@ type Race = { year: int
 type Player = { name: string
                 rating: float }
 
-type Battle = { team: string
-                results: Result * Result }
+// battles/wars in the sense of matches/tournament
+type Battle = { year: int
+                round: int
+                driver: string
+                opponent: string
+                score: int }
 
 type War = { year: int
              driver: string
