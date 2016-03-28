@@ -1,28 +1,33 @@
 module Types
 
-open System
+type Team = string
 
-type Result = { driver: string
-                team: string
-                position: int
-                time: TimeSpan option }
+type Driver = string
+
+type Position = int
+
+type Classification =
+    // Time is in millis, not TimeSpan
+    // because prints horribly in REPl!
+    | Finish of double option
+    // Collision are considered driver's own fault
+    // because serial victims are rarer than
+    // serial crashers
+    | Collision
+
+type IndividualResult =
+    | Classified of Position * Classification
+    // A genuine DNF will mean no result
+    | Unclassified of string
+
+type TeamBattleResult = { driver: Driver
+                          opponent: Driver
+                          score: float option }
 
 type Race = { year: int
               round: int
               name: string
-              results: Result seq }
+              teamResults: Map<Team, (Driver * IndividualResult) seq> }
 
 type Player = { name: string
                 rating: float }
-
-// battles/wars in the sense of matches/tournament
-type Battle = { year: int
-                round: int
-                driver: string
-                opponent: string
-                score: int }
-
-type War = { year: int
-             driver: string
-             opponent: string
-             score: int }

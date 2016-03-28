@@ -18,7 +18,7 @@ let round el =
     | Some x -> Int32.Parse x
     | None -> failwith "Failed to parse round"
 
-let result el: Result =
+let result el =
     let driver =
         match selectAttr el "./Driver" "driverId" with
         | Some x -> x
@@ -34,56 +34,63 @@ let result el: Result =
     let time =
         selectAttr el "./Time" "millis"
         |> Option.map Double.Parse
-        |> Option.map TimeSpan.FromMilliseconds
-    { driver = driver
-      team = team
-      position = position
-      time = time }
+    let status =
+        match selectValue el "./Status" with
+        | Some status -> status
+        | None -> failwith "Failed to parse status"
+    let raceResult =
+        match status with
+        | "Finished" -> Classified (position, Finish time)
+        | "Collision" -> Classified (position, Collision)
+        | "Spun off" -> Classified (position, Collision)
+        | other -> if other.StartsWith "+"
+                   then Classified (position, Finish None)
+                   else Unclassified other
+    team, driver, raceResult
 
-let results el =
+let raceResults el =
     let rs = select el "/RaceTable/Race/ResultsList/Result"
     seq { for r in rs do
-          yield result r }
+          let t,d,rr = result r
+          yield t, (d, rr) }
+    |> Seq.groupBy (fun (t,drr) -> t)
+    |> Map.ofSeq
+    |> Map.map (fun _ s -> s |> Seq.map (fun (t,drr) -> drr))
 
 let yearResults year: Race seq =
     let pattern = sprintf "results_%i_*.xml" year
     let files = Directory.EnumerateFiles("results", pattern)
     seq { for file in files do
           let xml = loadXml file
+          let r = round xml
+          let n = raceName xml
+          let raceResults = raceResults xml
           yield { year = year
-                  round = round xml
-                  name = raceName xml
-                  results = results xml } }
+                  round = r
+                  name = n
+                  teamResults = raceResults } }
 
-let scoreA resultA resultB =
-    resultA.position / (resultA.position + resultB.position)
+let scoreA positionA positionB =
+    let a = float positionA
+    let b = float positionB
+    a / (a + b)
+    
+let driverResults (rs: (Driver * IndividualResult) seq) =
+    seq { for (nameA, indResA) in rs do
+          for (nameB, indResB) in rs |> Seq.filter (fun (n, ir) -> n <> nameA) do
+          let score =
+              match indResA, indResB with
+              | Classified(pA, _), Classified(pB, _) -> scoreA pA pB |> Some
+              | _ -> None
+          yield { driver = nameA
+                  opponent = nameB
+                  score  = score } }
 
-let teams (race: Race) =
-    race.results
-    |> Seq.fold (fun map x ->
-                let results =
-                    match Map.tryFind x.team map with
-                    | Some xs -> Set.add x xs
-                    | None -> Set.add x Set.empty
-                Map.add x.team results map) Map.empty
-
-let otherDriver (driver: Result) (set: Set<Result>) =
-    let diff = Set.difference (Set.add driver Set.empty) set
-    match Set.toList diff with
-    | [ x ] -> Some x
-    | _ -> None
-
-let battles (race: Race) =
-    let ts = teams race
-    seq { for result in race.results do
-            let teammates = Map.find result.team ts
-            let other = otherDriver result teammates
-            match other with
-            | None -> do ()
-            | Some opponent ->
-                let score = scoreA result opponent
-                yield { year = race.year
-                        round = race.round
-                        driver = result.driver
-                        opponent = opponent.driver
-                        score = score } }
+let teamBattleResults (races: Race seq) =
+    seq { for race in races do
+          for (team, drs) in Map.toSeq race.teamResults do
+          // TODO need to pass around the year
+          // so we can ensure correct order
+          // because rating may not be commutative
+          // (Elo isn't)
+          yield! driverResults drs }
