@@ -1,20 +1,20 @@
 module Elo
 
-#load "types.fsx"
-
 open System
-open Types
 
 let KFactor = 32.0
 
-let expectedScore (playerA: Player) (playerB: Player) =
-    1.0 / (1.0 + Math.Pow(10.0, (playerA.rating - playerB.rating) / 400.0))
+let expectedScore (playerA: float) (playerB: float) =
+    1.0 / (1.0 + Math.Pow(10.0, (playerA - playerB) / 400.0))
 
-let updateRating (player: Player) (expectedScore: float) (actualScore: float) =
-    { player with rating = player.rating + KFactor * (actualScore - expectedScore) }
+let updateRating (player: float) (expectedScore: float) (actualScore: float) =
+    player + KFactor * (actualScore - expectedScore)
 
 module WikiExample =
     // https://en.wikipedia.org/wiki/Elo_rating_system#Theory
+
+    type Player = { name: string
+                    rating: float }
 
     let players = [ { name = "A"; rating = 1613.0 }
                     { name = "B"; rating = 1609.0 }
@@ -25,7 +25,7 @@ module WikiExample =
 
     let expectedScores =
         players
-        |> Seq.map (fun p -> expectedScore players.[0] p)
+        |> Seq.map (fun p -> expectedScore players.[0].rating p.rating)
         |> Seq.zip players
         |> Seq.skip 1 // drop A
 
@@ -37,6 +37,6 @@ module WikiExample =
 
     let actual: float = Seq.fold (+) 0.0 actualScores
 
-    let updatedRating = updateRating players.[0] actual expectation 
+    let updatedRating = updateRating players.[0].rating actual expectation 
 
     // updatedRating should be 1601

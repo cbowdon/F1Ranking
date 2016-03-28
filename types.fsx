@@ -1,9 +1,7 @@
 module Types
 
 type Team = string
-
 type Driver = string
-
 type Position = int
 
 type Classification =
@@ -20,14 +18,17 @@ type IndividualResult =
     // A genuine DNF will mean no result
     | Unclassified of string
 
-type TeamBattleResult = { driver: Driver
-                          opponent: Driver
-                          score: float option }
-
 type Race = { year: int
               round: int
               name: string
               teamResults: Map<Team, (Driver * IndividualResult) seq> }
 
-type Player = { name: string
-                rating: float }
+type TeamBattleResult = { driver: Driver
+                          opponent: Driver
+                          round: int
+                          score: float option }
+
+type SeasonResult = { driver: Driver
+                      opponent: Driver
+                      rounds: int
+                      totalScore: float }

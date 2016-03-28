@@ -73,9 +73,9 @@ let yearResults year: Race seq =
 let scoreA positionA positionB =
     let a = float positionA
     let b = float positionB
-    a / (a + b)
+    1.0 - a / (a + b)
     
-let driverResults (rs: (Driver * IndividualResult) seq) =
+let driverResults (rnd: int) (rs: (Driver * IndividualResult) seq) =
     seq { for (nameA, indResA) in rs do
           for (nameB, indResB) in rs |> Seq.filter (fun (n, ir) -> n <> nameA) do
           let score =
@@ -84,13 +84,19 @@ let driverResults (rs: (Driver * IndividualResult) seq) =
               | _ -> None
           yield { driver = nameA
                   opponent = nameB
+                  round = rnd
                   score  = score } }
 
 let teamBattleResults (races: Race seq) =
     seq { for race in races do
           for (team, drs) in Map.toSeq race.teamResults do
-          // TODO need to pass around the year
-          // so we can ensure correct order
-          // because rating may not be commutative
-          // (Elo isn't)
-          yield! driverResults drs }
+          yield! driverResults race.round drs }
+
+let allDrivers =
+    let files = Directory.EnumerateFiles("results", "drivers_*.xml")
+    seq { for file in files do
+          let xml = loadXml file
+          let drivers = selectAttrs xml "//Driver" "driverId"
+          yield! drivers }
+    |> Set.ofSeq
+

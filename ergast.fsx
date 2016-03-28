@@ -22,6 +22,11 @@ module Ergast =
         |> download
         |> XPath.parseXml
 
+    let drivers year =
+        Uri(api, sprintf "%i/drivers" year)
+        |> download
+        |> XPath.parseXml
+
 let years = Seq.init 16 (fun i -> 2000 + i)
 
 let rounds = seq { for year in years do
@@ -36,3 +41,10 @@ let results = seq { for y,rs in rounds do
                     yield y, r, results }
 
 //results |> Seq.iter (fun (y,r,xml) -> xml.Save(sprintf "results/results_%i_%i.xml" y r))
+
+
+let drivers = seq { for year in years do
+                    let xml = Ergast.drivers year
+                    yield year, xml }
+
+drivers |> Seq.iter (fun (y,xml) -> xml.Save(sprintf "results/drivers_%i.xml" y))
