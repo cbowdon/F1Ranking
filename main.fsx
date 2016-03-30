@@ -1,6 +1,7 @@
 #load "match.fsx"
 #load "elo.fsx"
 
+open System.IO
 open Types
 open Match
 open Elo
@@ -11,9 +12,6 @@ let drivers =
     allDrivers
     |> Seq.map (fun d -> d, initialScore)
     |> Map.ofSeq
-
-let races = yearResults 2000
-let trs = teamBattleResults races
 
 let totalScoreRounds (trs: TeamBattleResult seq) =
     let scores = seq { for t in trs do
@@ -33,18 +31,64 @@ let seasonResults (trs: TeamBattleResult seq) =
                   totalScore = total })
 
 let updateDriver (drivers: Map<Driver, float>) (t: SeasonResult) =
-    let driverRating = Map.find t.driver drivers
-    let opponentRating = Map.find t.opponent drivers
-    let expected = expectedScore driverRating opponentRating
-    let actual = t.totalScore / (float t.rounds)
-    let newRating = updateRating driverRating expected actual
-    Map.add t.driver newRating drivers
-    
-let updatedDrivers =
-    trs
-    |> seasonResults
-    |> Seq.fold updateDriver drivers
+    if t.rounds = 0 then
+        drivers
+    else
+        let driverRating = Map.find t.driver drivers
+        let opponentRating = Map.find t.opponent drivers
+        let expected = expectedScore driverRating opponentRating
+        // TODO perhaps some weighting so 1 or 2 races
+        // against temp drivers don't have a big effect
+        let actual = t.totalScore / (float t.rounds)
+        let newRating = updateRating driverRating expected actual
+        Map.add t.driver newRating drivers
 
-// expect Hakkinen to be on 202.05
-// and Coulthard on 197.79
-// after the 2000 season
+let sprintDrivers (drivers: Map<Driver, float>) =
+    drivers
+    |> Map.toSeq
+    |> Seq.map fst
+    |> Seq.sort
+    |> String.concat "\t"
+
+let sprintScores (drivers: Map<Driver, float>) = 
+    drivers
+    |> Map.toSeq
+    |> Seq.sortBy fst
+    |> Seq.map (snd >> string)
+    |> String.concat "\t"
+
+let dataFile = "scores.tsv"
+
+let appendLine file line =
+    File.AppendAllText(file, sprintf "%s\n" line)
+    
+let updateDrivers (drivers: Map<Driver, float>) (trs: TeamBattleResult seq) =
+    let updatedDrivers =
+        trs
+        |> seasonResults
+        |> Seq.fold updateDriver drivers
+    
+    appendLine dataFile (sprintScores updatedDrivers)
+
+    updatedDrivers
+
+// // Test:
+// // after the 2000 season
+// // expect Hakkinen to be on 202.05
+// // and Coulthard on 197.79
+// // yes this should be a unit test. what you gonna do?
+// let races = yearResults 2000
+// let trs = teamBattleResults races
+// let y2kResult = updateDrivers drivers trs
+
+// TODO let's go to when schumi started
+let years = Seq.init 16 ((+) 2000)
+
+File.Delete dataFile
+appendLine dataFile (sprintDrivers drivers)
+
+let finalResults =
+    years
+    |> Seq.map yearResults
+    |> Seq.map teamBattleResults
+    |> Seq.fold updateDrivers drivers
