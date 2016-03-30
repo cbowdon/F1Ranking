@@ -6,6 +6,7 @@ open Types
 open Match
 open Elo
 
+// Suggested initial score from Elo wiki page
 let initialScore = 200.0
 
 let drivers =

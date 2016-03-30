@@ -2,6 +2,7 @@ module Elo
 
 open System
 
+// Suggested KFactor from wiki
 let KFactor = 32.0
 
 let expectedScore (playerA: float) (playerB: float) =
